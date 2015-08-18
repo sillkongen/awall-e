@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Blocked IP's"
+pfctl -t badhosts -T show
+echo "\n"
+echo "Amount of hosts"
+pfctl -t badhosts -T show | wc -l
