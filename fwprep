@@ -1,0 +1,7 @@
+#!/bin/sh
+cp /etc/pf.blocked.ip.conf /tmp/fwlist
+
+cat /var/log/authlog | awk {'print $12'} | grep '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' | sort | uniq | grep -v "\[" >> /tmp/fwlist
+
+cat /tmp/fwlist | sort | uniq > /etc/pf.blocked.ip.conf
+pfctl -f /etc/pf.conf
