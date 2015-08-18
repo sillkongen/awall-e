@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Add an IP to the blocked IP addresses list.
+echo "$1" >> /etc/pf.blocked.ip.conf
+
+# Make sure the list is sorted and all entries have only a single instance.
+fwprep
+
+#reload the config for PF
+pfctl -f /etc/pf.conf
