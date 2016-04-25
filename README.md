@@ -12,4 +12,11 @@ There are 4 scripts.
   "Bad protocol version identification"
   
 4 fwlist / List all IP's that are blocked currently.
+
+I copy all scripts to /usr/local/bin/fwlist and make the executable via chmod +x
+
+*Add this your crontab entry to.
+# Update FW blocking rules every 5 minutes
+*/5 * * * * /usr/local/bin/fwprep
+
  
